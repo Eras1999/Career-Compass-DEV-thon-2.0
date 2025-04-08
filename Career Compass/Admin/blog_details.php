@@ -6,18 +6,14 @@ if (!isset($_SESSION['admin_logged_in'])) {
 }
 $conn = new mysqli("localhost", "root", "", "career_compass");
 $admin_name = "ssadmin";
-
-// Add 'approved' column to feedback table if not already present
-$conn->query("ALTER TABLE feedback ADD COLUMN IF NOT EXISTS approved TINYINT(1) DEFAULT 0");
-
-$result = $conn->query("SELECT * FROM feedback");
+$result = $conn->query("SELECT * FROM blog");
 ?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Feedback Details - Career Compass</title>
+    <title>Blog Details - Career Compass</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <style>
@@ -105,6 +101,20 @@ $result = $conn->query("SELECT * FROM feedback");
             font-size: 14px;
         }
 
+        /* Add New Blog Button */
+        .btn-add {
+            background: #007BFF;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            padding: 10px 20px;
+            font-weight: 500;
+            transition: background 0.3s;
+        }
+        .btn-add:hover {
+            background: #FFC107;
+        }
+
         /* Table */
         .table {
             background: white;
@@ -136,8 +146,8 @@ $result = $conn->query("SELECT * FROM feedback");
             max-height: 50px;
             border-radius: 5px;
         }
-        .table .btn-approve {
-            background: #28a745;
+        .table .btn-edit {
+            background: #007BFF;
             color: white;
             border: none;
             border-radius: 5px;
@@ -145,8 +155,20 @@ $result = $conn->query("SELECT * FROM feedback");
             font-size: 12px;
             transition: background 0.3s;
         }
-        .table .btn-approve:hover {
-            background: #218838;
+        .table .btn-edit:hover {
+            background: #0056b3;
+        }
+        .table .btn-delete {
+            background: #dc3545;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            padding: 5px 10px;
+            font-size: 12px;
+            transition: background 0.3s;
+        }
+        .table .btn-delete:hover {
+            background: #c82333;
         }
     </style>
 </head>
@@ -166,47 +188,41 @@ $result = $conn->query("SELECT * FROM feedback");
         <a href="users_details.php"><i class="fas fa-users"></i> Users Details</a>
         <a href="course_details.php"><i class="fas fa-book"></i> Course Details</a>
         <a href="contact_details.php"><i class="fas fa-envelope"></i> Contact Details</a>
-        <a href="blog_details.php"><i class="fas fa-blog"></i> Blog Details</a>
-        <a href="feedback_details.php" class="active"><i class="fas fa-comment"></i> Feedback Details</a>
+        <a href="blog_details.php" class="active"><i class="fas fa-blog"></i> Blog Details</a>
+        <a href="feedback_details.php"><i class="fas fa-comment"></i> Feedback Details</a>
     </div>
 
     <!-- Content -->
     <div class="content">
-        <h2>Feedback Details</h2>
-        <p>Manage all feedback submissions here.</p>
+        <h2>Blog Details</h2>
+        <p>Manage all blog posts here.</p>
+        <a href="add_blog.php" class="btn btn-add mb-3">Add New Blog</a>
         <table class="table table-striped">
             <thead>
                 <tr>
                     <th>ID</th>
-                    <th>Name</th>
-                    <th>Position</th>
-                    <th>Message</th>
+                    <th>Title</th>
+                    <th>Content</th>
                     <th>Image</th>
-                    <th>Status</th>
-                    <th>Action</th>
+                    <th>Date</th>
+                    <th>Views</th>
+                    <th>Popular</th>
+                    <th>Actions</th>
                 </tr>
             </thead>
             <tbody>
                 <?php while ($row = $result->fetch_assoc()) { ?>
                     <tr>
-                        <td><?php echo htmlspecialchars($row['feedback_id']); ?></td>
-                        <td><?php echo htmlspecialchars($row['full_name']); ?></td>
-                        <td><?php echo htmlspecialchars($row['position']); ?></td>
-                        <td><?php echo htmlspecialchars(substr($row['message'], 0, 50)) . '...'; ?></td>
+                        <td><?php echo htmlspecialchars($row['id']); ?></td>
+                        <td><?php echo htmlspecialchars($row['title']); ?></td>
+                        <td><?php echo htmlspecialchars(substr($row['content'], 0, 50)) . '...'; ?></td>
+                        <td><img src="../images/<?php echo htmlspecialchars($row['image']); ?>" alt="Blog Image"></td>
+                        <td><?php echo date('d-May-Y', strtotime($row['created_at'])); ?></td>
+                        <td><?php echo htmlspecialchars($row['views']); ?></td>
+                        <td><?php echo $row['is_popular'] ? 'Yes' : 'No'; ?></td>
                         <td>
-                            <?php if ($row['image'] && file_exists("../" . $row['image'])) { ?>
-                                <img src="../<?php echo htmlspecialchars($row['image']); ?>" alt="Feedback Image">
-                            <?php } else { ?>
-                                <span>No Image</span>
-                            <?php } ?>
-                        </td>
-                        <td><?php echo $row['approved'] ? 'Approved' : 'Pending'; ?></td>
-                        <td>
-                            <?php if (!$row['approved']) { ?>
-                                <a href="approve_feedback.php?id=<?php echo htmlspecialchars($row['feedback_id']); ?>" class="btn btn-approve">Approve</a>
-                            <?php } else { ?>
-                                <span class="text-success">Approved</span>
-                            <?php } ?>
+                            <a href="edit_blog.php?id=<?php echo htmlspecialchars($row['id']); ?>" class="btn btn-edit">Edit</a>
+                            <a href="delete_blog.php?id=<?php echo htmlspecialchars($row['id']); ?>" class="btn btn-delete" onclick="return confirm('Are you sure?')">Delete</a>
                         </td>
                     </tr>
                 <?php } $conn->close(); ?>

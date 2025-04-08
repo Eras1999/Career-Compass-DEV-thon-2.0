@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Apr 06, 2025 at 11:37 PM
+-- Generation Time: Apr 08, 2025 at 06:11 PM
 -- Server version: 10.4.32-MariaDB
 -- PHP Version: 8.0.30
 
@@ -61,17 +61,17 @@ CREATE TABLE `blog` (
 --
 
 INSERT INTO `blog` (`id`, `title`, `content`, `image`, `created_at`, `views`, `is_popular`) VALUES
-(1, 'Top High-Paying Industries and Career Paths for Future Success', 'The job market is constantly evolving, and some careers offer significantly higher salaries due to their demand, required skill levels, and impact on the global economy. Professionals seeking high-paying careers should explore fields that not only offer financial stability but also opportunities for long-term growth and innovation. In this article, we delve into the top high-paying industries, the most lucrative career paths within them, and the skills required to excel.', 'images/blog-image1.jpg', '2023-05-13 10:00:00', 55, 1),
-(2, 'How to Build a Strong Resume with No Experience', 'Entering the job market without prior work experience can feel daunting, but a strong resume can make a lasting impression on employers. Highlight your skills, education, and transferable experiences to showcase your potential. In this guide, we’ll share tips on crafting a compelling resume that stands out, even without professional experience.', 'images/blog-image2.jpg', '2023-04-20 09:00:00', 47, 0),
-(3, 'Choosing the Right Career', 'Choosing a career can be challenging, but this guide will help you identify your passions, skills, and market demands to make an informed decision.', 'images/blog-image3.jpg', '2023-04-15 08:00:00', 30, 1),
-(4, 'Top In-Demand Careers in 2025', 'The job market is constantly evolving. Discover the top in-demand careers for 2025 and the skills required to succeed.', 'images/blog-image4.jpg', '2023-04-10 07:00:00', 25, 1),
-(5, 'The Importance of Higher Education in Career Growth', 'Higher education opens doors to better job opportunities. Learn how a degree or certification can positively impact your career.', 'images/blog-image5.jpg', '2023-04-05 06:00:00', 20, 0),
-(6, 'Technical vs. University Education: Which One is Right for You?', 'Not all successful careers require a university degree. Explore the pros and cons of technical and university education.', 'images/blog-image6.jpg', '2023-04-01 05:00:00', 15, 1),
-(7, 'The Role of Internships in Career Development', 'Internships provide hands-on experience and help you build a professional network. Discover why internships are crucial for career growth.', 'images/blog-image7.jpg', '2023-03-25 04:00:00', 10, 1),
-(8, 'How to Develop Soft Skills for Career Success', 'Technical skills are important, but soft skills like communication and teamwork are equally essential. Learn how to develop them.', 'images/blog-image8.jpg', '2023-03-20 03:00:00', 8, 1),
-(9, 'Best Online Courses to Boost Your Career in 2023', 'Discover the best online courses to enhance your skills and advance your career in 2023.', 'images/blog-image9.jpg', '2023-03-15 02:00:00', 5, 0),
-(10, 'The Future of Remote Work: How to Prepare', 'Remote work is becoming more common across industries. Learn how to prepare for a successful remote career.', 'images/blog-image10.jpg', '2023-03-10 01:00:00', 3, 1),
-(11, 'Top Certifications to Enhance Your Resume in 2023', 'Certifications can make your resume stand out and increase your chances of landing a job. Explore the top certifications for 2023.', 'images/blog-image11.jpg', '2023-03-05 00:00:00', 2, 0);
+(1, 'Top High-Paying Industries and Career Paths for Future Success', 'The job market is constantly evolving, and some careers offer significantly higher salaries due to their demand, required skill levels, and impact on the global economy. Professionals seeking high-paying careers should explore fields that not only offer financial stability but also opportunities for long-term growth and innovation. In this article, we delve into the top high-paying industries, the most lucrative career paths within them, and the skills required to excel.', 'blog-image1.jpg', '2023-05-13 10:00:00', 59, 1),
+(2, 'How to Build a Strong Resume with No Experience', 'Entering the job market without prior work experience can feel daunting, but a strong resume can make a lasting impression on employers. Highlight your skills, education, and transferable experiences to showcase your potential. In this guide, we’ll share tips on crafting a compelling resume that stands out, even without professional experience.', 'blog-image2.jpg', '2023-04-20 09:00:00', 47, 0),
+(3, 'Choosing the Right Career', 'Choosing a career can be challenging, but this guide will help you identify your passions, skills, and market demands to make an informed decision.', 'blog-image3.jpg', '2023-04-15 08:00:00', 30, 1),
+(4, 'Top In-Demand Careers in 2025', 'The job market is constantly evolving. Discover the top in-demand careers for 2025 and the skills required to succeed.', 'blog-image4.jpg', '2023-04-10 07:00:00', 25, 1),
+(5, 'The Importance of Higher Education in Career Growth', 'Higher education opens doors to better job opportunities. Learn how a degree or certification can positively impact your career.', 'blog-image5.jpg', '2023-04-05 06:00:00', 21, 0),
+(6, 'Technical vs. University Education: Which One is Right for You?', 'Not all successful careers require a university degree. Explore the pros and cons of technical and university education.', 'blog-image6.jpg', '2023-04-01 05:00:00', 15, 1),
+(7, 'The Role of Internships in Career Development', 'Internships provide hands-on experience and help you build a professional network. Discover why internships are crucial for career growth.', 'blog-image7.jpg', '2023-03-25 04:00:00', 10, 1),
+(8, 'How to Develop Soft Skills for Career Success', 'Technical skills are important, but soft skills like communication and teamwork are equally essential. Learn how to develop them.', 'blog-image8.jpg', '2023-03-20 03:00:00', 8, 1),
+(9, 'Best Online Courses to Boost Your Career in 2023', 'Discover the best online courses to enhance your skills and advance your career in 2023.', 'blog-image9.jpg', '2023-03-15 02:00:00', 5, 0),
+(10, 'The Future of Remote Work: How to Prepare', 'Remote work is becoming more common across industries. Learn how to prepare for a successful remote career.', 'blog-image10.jpg', '2023-03-10 01:00:00', 3, 1),
+(11, 'Top Certifications to Enhance Your Resume in 2023', 'Certifications can make your resume stand out and increase your chances of landing a job. Explore the top certifications for 2023.', 'blog-image11.jpg', '2023-03-05 00:00:00', 2, 0);
 
 -- --------------------------------------------------------
 
@@ -92,7 +92,12 @@ CREATE TABLE `contact` (
 --
 
 INSERT INTO `contact` (`contact_id`, `first_name`, `email`, `message`, `created_at`) VALUES
-(1, 'Sahan', 'sahan@gmail.com', 'sddjjhskjdsd ksjdlkjdljdlsjdlk', '2025-04-05 17:57:05');
+(1, 'Sahan', 'sahan@gmail.com', 'sddjjhskjdsd ksjdlkjdljdlsjdlk', '2025-04-05 17:57:05'),
+(2, 'Sahan', 'sahansandaruwan1021@gmail.com', 'Need more information', '2025-04-08 16:07:47'),
+(3, 'Sahan', 'sahansandaruwan1021@gmail.com', 'Need more information', '2025-04-08 16:08:22'),
+(4, 'Sahan', 'sahansandaruwan1021@gmail.com', 'Information', '2025-04-08 16:08:34'),
+(5, 'Sahan', 'sahansandaruwan1021@gmail.com', 'Information', '2025-04-08 16:09:20'),
+(6, 'Sahan', 'sahansandaruwan1021@gmail.com', 'Help', '2025-04-08 16:09:46');
 
 -- --------------------------------------------------------
 
@@ -273,7 +278,7 @@ ALTER TABLE `blog`
 -- AUTO_INCREMENT for table `contact`
 --
 ALTER TABLE `contact`
-  MODIFY `contact_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `contact_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
 
 --
 -- AUTO_INCREMENT for table `course_details`

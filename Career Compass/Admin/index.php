@@ -9,10 +9,12 @@ $admin_name = "ssadmin"; // Replace with dynamic admin name if needed
 ?>
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Admin Dashboard - Career Compass</title>
+    <link href="assets/img/logo.png" rel="icon">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <style>
@@ -21,6 +23,7 @@ $admin_name = "ssadmin"; // Replace with dynamic admin name if needed
             font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
             background: #f4f7fc;
         }
+
         /* Header */
         .header {
             background: white;
@@ -34,23 +37,28 @@ $admin_name = "ssadmin"; // Replace with dynamic admin name if needed
             top: 0;
             z-index: 1000;
         }
+
         .header img {
             height: 40px;
         }
+
         .header .admin-info {
             display: flex;
             align-items: center;
         }
+
         .header .admin-info span {
             margin-right: 15px;
             font-weight: 500;
             color: #333;
         }
+
         .header .admin-info .btn {
             background: #007BFF;
             color: white;
             border: none;
         }
+
         .header .admin-info .btn:hover {
             background: #FFC107;
         }
@@ -66,6 +74,7 @@ $admin_name = "ssadmin"; // Replace with dynamic admin name if needed
             padding-top: 20px;
             box-shadow: 2px 0 10px rgba(0, 0, 0, 0.05);
         }
+
         .sidebar a {
             color: #6c757d;
             padding: 12px 20px;
@@ -75,11 +84,14 @@ $admin_name = "ssadmin"; // Replace with dynamic admin name if needed
             font-weight: 500;
             font-size: 15px;
         }
+
         .sidebar a i {
             margin-right: 10px;
             color: #007BFF;
         }
-        .sidebar a:hover, .sidebar a.active {
+
+        .sidebar a:hover,
+        .sidebar a.active {
             background: #e9ecef;
             color: #007BFF;
         }
@@ -90,11 +102,13 @@ $admin_name = "ssadmin"; // Replace with dynamic admin name if needed
             margin-top: 60px;
             padding: 30px;
         }
+
         .content h2 {
             font-size: 24px;
             font-weight: 600;
             color: #333;
         }
+
         .content p {
             color: #6c757d;
             font-size: 14px;
@@ -109,24 +123,29 @@ $admin_name = "ssadmin"; // Replace with dynamic admin name if needed
             background: white;
             transition: transform 0.3s;
         }
+
         .dashboard-cards .card:hover {
             transform: translateY(-5px);
         }
+
         .dashboard-cards .card h5 {
             font-size: 16px;
             color: #6c757d;
             margin-bottom: 10px;
         }
+
         .dashboard-cards .card h3 {
             font-size: 24px;
             font-weight: 600;
             color: #333;
         }
+
         .dashboard-cards .card p {
             font-size: 12px;
             color: #28a745;
             margin: 0;
         }
+
         .dashboard-cards .card i {
             font-size: 24px;
             color: #007BFF;
@@ -136,12 +155,14 @@ $admin_name = "ssadmin"; // Replace with dynamic admin name if needed
         .placeholder-section {
             margin-top: 30px;
         }
+
         .placeholder-section h4 {
             font-size: 18px;
             font-weight: 600;
             color: #333;
             margin-bottom: 15px;
         }
+
         .placeholder-section .card {
             background: white;
             border-radius: 10px;
@@ -149,24 +170,31 @@ $admin_name = "ssadmin"; // Replace with dynamic admin name if needed
             padding: 20px;
             height: 200px;
         }
+
         .calendar .card {
             height: auto;
             padding: 20px;
         }
+
         .calendar table {
             width: 100%;
             text-align: center;
         }
-        .calendar th, .calendar td {
+
+        .calendar th,
+        .calendar td {
             padding: 10px;
             font-size: 14px;
         }
+
         .calendar th {
             color: #6c757d;
         }
+
         .calendar td {
             color: #333;
         }
+
         .calendar td.today {
             background: #007BFF;
             color: white;
@@ -174,6 +202,7 @@ $admin_name = "ssadmin"; // Replace with dynamic admin name if needed
         }
     </style>
 </head>
+
 <body>
     <!-- Header -->
     <div class="header">
@@ -228,9 +257,10 @@ $admin_name = "ssadmin"; // Replace with dynamic admin name if needed
             ?>
         </div>
 
-        
+
     </div>
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
 </body>
+
 </html>

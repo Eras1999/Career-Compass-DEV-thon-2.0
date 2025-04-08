@@ -10,7 +10,7 @@ $search = isset($_GET['search']) ? $_GET['search'] : '';
 
 // Pagination variables
 $limit = 4; // Number of courses per page (changed to 4 to match screenshot)
-$page = isset($_GET['page']) ? (int)$_GET['page'] : 1;
+$page = isset($_GET['page']) ? (int) $_GET['page'] : 1;
 $offset = ($page - 1) * $limit;
 
 // Build the query for filtering courses
@@ -66,7 +66,8 @@ $stmt->execute();
 $courses = $stmt->get_result()->fetch_all(MYSQLI_ASSOC);
 
 // Function to truncate description
-function truncateDescription($text, $word_limit = 15) {
+function truncateDescription($text, $word_limit = 15)
+{
     $words = explode(' ', $text);
     if (count($words) > $word_limit) {
         return implode(' ', array_slice($words, 0, $word_limit)) . '...';
@@ -78,10 +79,12 @@ $conn->close();
 ?>
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Courses - Career Compass</title>
+    <link href="assets/img/logo.png" rel="icon">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <style>
@@ -355,6 +358,7 @@ $conn->close();
         }
     </style>
 </head>
+
 <body>
     <!-- Navigation -->
     <?php include 'includes/navigation.php'; ?>
@@ -378,13 +382,15 @@ $conn->close();
                         <h5>FILTER BY</h5>
                         <form method="GET" id="filterForm">
                             <div class="search-box">
-                                <input type="text" name="search" placeholder="Search" value="<?php echo htmlspecialchars($search); ?>">
+                                <input type="text" name="search" placeholder="Search"
+                                    value="<?php echo htmlspecialchars($search); ?>">
                                 <i class="fas fa-search"></i>
                             </div>
 
                             <h5>Preferred Career Field</h5>
                             <div class="form-check">
-                                <input class="form-check-input" type="radio" name="field" id="fieldAll" value="All" <?php echo ($field == 'All' || $field == '') ? 'checked' : ''; ?>>
+                                <input class="form-check-input" type="radio" name="field" id="fieldAll" value="All"
+                                    <?php echo ($field == 'All' || $field == '') ? 'checked' : ''; ?>>
                                 <label class="form-check-label" for="fieldAll">All</label>
                             </div>
                             <div class="form-check">
@@ -392,67 +398,82 @@ $conn->close();
                                 <label class="form-check-label" for="fieldIT">IT</label>
                             </div>
                             <div class="form-check">
-                                <input class="form-check-input" type="radio" name="field" id="fieldManagement" value="Management" <?php echo ($field == 'Management') ? 'checked' : ''; ?>>
+                                <input class="form-check-input" type="radio" name="field" id="fieldManagement"
+                                    value="Management" <?php echo ($field == 'Management') ? 'checked' : ''; ?>>
                                 <label class="form-check-label" for="fieldManagement">Management</label>
                             </div>
                             <div class="form-check">
-                                <input class="form-check-input" type="radio" name="field" id="fieldEngineering" value="Engineering" <?php echo ($field == 'Engineering') ? 'checked' : ''; ?>>
+                                <input class="form-check-input" type="radio" name="field" id="fieldEngineering"
+                                    value="Engineering" <?php echo ($field == 'Engineering') ? 'checked' : ''; ?>>
                                 <label class="form-check-label" for="fieldEngineering">Engineering</label>
                             </div>
                             <div class="form-check">
-                                <input class="form-check-input" type="radio" name="field" id="fieldLanguage" value="Language" <?php echo ($field == 'Language') ? 'checked' : ''; ?>>
+                                <input class="form-check-input" type="radio" name="field" id="fieldLanguage"
+                                    value="Language" <?php echo ($field == 'Language') ? 'checked' : ''; ?>>
                                 <label class="form-check-label" for="fieldLanguage">Language</label>
                             </div>
                             <div class="form-check">
-                                <input class="form-check-input" type="radio" name="field" id="fieldOther" value="Other" <?php echo ($field == 'Other') ? 'checked' : ''; ?>>
+                                <input class="form-check-input" type="radio" name="field" id="fieldOther" value="Other"
+                                    <?php echo ($field == 'Other') ? 'checked' : ''; ?>>
                                 <label class="form-check-label" for="fieldOther">Other</label>
                             </div>
 
                             <h5>Preferred Qualification Level</h5>
                             <div class="form-check">
-                                <input class="form-check-input" type="radio" name="qualification_level" id="qualAll" value="All" <?php echo ($qualification_level == 'All' || $qualification_level == '') ? 'checked' : ''; ?>>
+                                <input class="form-check-input" type="radio" name="qualification_level" id="qualAll"
+                                    value="All" <?php echo ($qualification_level == 'All' || $qualification_level == '') ? 'checked' : ''; ?>>
                                 <label class="form-check-label" for="qualAll">All</label>
                             </div>
                             <div class="form-check">
-                                <input class="form-check-input" type="radio" name="qualification_level" id="qualCertificate" value="Certificate" <?php echo ($qualification_level == 'Certificate') ? 'checked' : ''; ?>>
+                                <input class="form-check-input" type="radio" name="qualification_level"
+                                    id="qualCertificate" value="Certificate" <?php echo ($qualification_level == 'Certificate') ? 'checked' : ''; ?>>
                                 <label class="form-check-label" for="qualCertificate">Certificate</label>
                             </div>
                             <div class="form-check">
-                                <input class="form-check-input" type="radio" name="qualification_level" id="qualDiploma" value="Diploma" <?php echo ($qualification_level == 'Diploma') ? 'checked' : ''; ?>>
+                                <input class="form-check-input" type="radio" name="qualification_level" id="qualDiploma"
+                                    value="Diploma" <?php echo ($qualification_level == 'Diploma') ? 'checked' : ''; ?>>
                                 <label class="form-check-label" for="qualDiploma">Diploma</label>
                             </div>
                             <div class="form-check">
-                                <input class="form-check-input" type="radio" name="qualification_level" id="qualHND" value="HND" <?php echo ($qualification_level == 'HND') ? 'checked' : ''; ?>>
+                                <input class="form-check-input" type="radio" name="qualification_level" id="qualHND"
+                                    value="HND" <?php echo ($qualification_level == 'HND') ? 'checked' : ''; ?>>
                                 <label class="form-check-label" for="qualHND">HND</label>
                             </div>
                             <div class="form-check">
-                                <input class="form-check-input" type="radio" name="qualification_level" id="qualDegree" value="Degree" <?php echo ($qualification_level == 'Degree') ? 'checked' : ''; ?>>
+                                <input class="form-check-input" type="radio" name="qualification_level" id="qualDegree"
+                                    value="Degree" <?php echo ($qualification_level == 'Degree') ? 'checked' : ''; ?>>
                                 <label class="form-check-label" for="qualDegree">Degree</label>
                             </div>
                             <div class="form-check">
-                                <input class="form-check-input" type="radio" name="qualification_level" id="qualFoundation" value="Foundation" <?php echo ($qualification_level == 'Foundation') ? 'checked' : ''; ?>>
+                                <input class="form-check-input" type="radio" name="qualification_level"
+                                    id="qualFoundation" value="Foundation" <?php echo ($qualification_level == 'Foundation') ? 'checked' : ''; ?>>
                                 <label class="form-check-label" for="qualFoundation">Foundation</label>
                             </div>
 
                             <h5>Course Study Mode</h5>
                             <div class="form-check">
-                                <input class="form-check-input" type="radio" name="study_mode" id="modeAll" value="All" <?php echo ($study_mode == 'All' || $study_mode == '') ? 'checked' : ''; ?>>
+                                <input class="form-check-input" type="radio" name="study_mode" id="modeAll" value="All"
+                                    <?php echo ($study_mode == 'All' || $study_mode == '') ? 'checked' : ''; ?>>
                                 <label class="form-check-label" for="modeAll">All</label>
                             </div>
                             <div class="form-check">
-                                <input class="form-check-input" type="radio" name="study_mode" id="modePartTime" value="Part time" <?php echo ($study_mode == 'Part time') ? 'checked' : ''; ?>>
+                                <input class="form-check-input" type="radio" name="study_mode" id="modePartTime"
+                                    value="Part time" <?php echo ($study_mode == 'Part time') ? 'checked' : ''; ?>>
                                 <label class="form-check-label" for="mode-Part time">Part-time</label>
                             </div>
                             <div class="form-check">
-                                <input class="form-check-input" type="radio" name="study_mode" id="modeFullTime" value="Full time" <?php echo ($study_mode == 'Full time') ? 'checked' : ''; ?>>
+                                <input class="form-check-input" type="radio" name="study_mode" id="modeFullTime"
+                                    value="Full time" <?php echo ($study_mode == 'Full time') ? 'checked' : ''; ?>>
                                 <label class="form-check-label" for="modeFullTime">Full-time</label>
                             </div>
                             <div class="form-check">
-                                <input class="form-check-input" type="radio" name="study_mode" id="modeOnline" value="Online" <?php echo ($study_mode == 'Online') ? 'checked' : ''; ?>>
+                                <input class="form-check-input" type="radio" name="study_mode" id="modeOnline"
+                                    value="Online" <?php echo ($study_mode == 'Online') ? 'checked' : ''; ?>>
                                 <label class="form-check-label" for="modeOnline">Online</label>
                             </div>
 
-                            <button type="button" class="clear-btn mt-3" onclick="window.location.href='course.php'">Clear</button>
+                            <button type="button" class="clear-btn mt-3"
+                                onclick="window.location.href='course.php'">Clear</button>
                         </form>
                     </div>
                 </div>
@@ -465,12 +486,15 @@ $conn->close();
                     <?php } else { ?>
                         <div class="course-grid">
                             <?php foreach ($courses as $course) { ?>
-                                <a href="course_details.php?course_id=<?php echo htmlspecialchars($course['course_id']); ?>" style="text-decoration: none; color: inherit;">
+                                <a href="course_details.php?course_id=<?php echo htmlspecialchars($course['course_id']); ?>"
+                                    style="text-decoration: none; color: inherit;">
                                     <div class="course-card d-flex align-items-center">
-                                        <img src="images/<?php echo htmlspecialchars($course['icon']); ?>" alt="<?php echo htmlspecialchars($course['course_name']); ?>">
+                                        <img src="images/<?php echo htmlspecialchars($course['icon']); ?>"
+                                            alt="<?php echo htmlspecialchars($course['course_name']); ?>">
                                         <div>
                                             <h5><?php echo htmlspecialchars($course['course_name']); ?></h5>
-                                            <p><?php echo htmlspecialchars(truncateDescription($course['course_description'], 15)); ?></p>
+                                            <p><?php echo htmlspecialchars(truncateDescription($course['course_description'], 15)); ?>
+                                            </p>
                                         </div>
                                     </div>
                                 </a>
@@ -483,7 +507,9 @@ $conn->close();
                         <nav aria-label="Page navigation">
                             <ul class="pagination">
                                 <li class="page-item">
-                                    <a class="page-link <?php echo ($page <= 1) ? 'disabled' : ''; ?>" href="course.php?page=<?php echo $page - 1; ?>&field=<?php echo urlencode($field); ?>&qualification_level=<?php echo urlencode($qualification_level); ?>&study_mode=<?php echo urlencode($study_mode); ?>&search=<?php echo urlencode($search); ?>" aria-label="Previous">
+                                    <a class="page-link <?php echo ($page <= 1) ? 'disabled' : ''; ?>"
+                                        href="course.php?page=<?php echo $page - 1; ?>&field=<?php echo urlencode($field); ?>&qualification_level=<?php echo urlencode($qualification_level); ?>&study_mode=<?php echo urlencode($study_mode); ?>&search=<?php echo urlencode($search); ?>"
+                                        aria-label="Previous">
                                         <i class="fas fa-chevron-left"></i>
                                     </a>
                                 </li>
@@ -493,7 +519,9 @@ $conn->close();
                                     <?php } ?>
                                 </li>
                                 <li class="page-item">
-                                    <a class="page-link <?php echo ($page >= $total_pages) ? 'disabled' : ''; ?>" href="course.php?page=<?php echo $page + 1; ?>&field=<?php echo urlencode($field); ?>&qualification_level=<?php echo urlencode($qualification_level); ?>&study_mode=<?php echo urlencode($study_mode); ?>&search=<?php echo urlencode($search); ?>" aria-label="Next">
+                                    <a class="page-link <?php echo ($page >= $total_pages) ? 'disabled' : ''; ?>"
+                                        href="course.php?page=<?php echo $page + 1; ?>&field=<?php echo urlencode($field); ?>&qualification_level=<?php echo urlencode($qualification_level); ?>&study_mode=<?php echo urlencode($study_mode); ?>&search=<?php echo urlencode($search); ?>"
+                                        aria-label="Next">
                                         <i class="fas fa-chevron-right"></i>
                                     </a>
                                 </li>
@@ -517,4 +545,5 @@ $conn->close();
         });
     </script>
 </body>
+
 </html>
